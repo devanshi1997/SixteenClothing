@@ -1,7 +1,9 @@
+import LatestProducts from '../components/OurProducts/LatestProducts';
+
 const Home = () => {
     return (
         <>
-            <h1>Home</h1>
+            <LatestProducts/>
         </>
     );
 }
