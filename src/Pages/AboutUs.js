@@ -1,7 +1,12 @@
+import React from 'react';
+import Banner from '../components/Banner/Banner'
+
 const AboutUs = ()=>{
     return (
-        <>
-            <h1>About Us</h1>
+        <>  
+        
+            <Banner type="simple" category="About Us Banner" />
+            
         </>
     );
 }

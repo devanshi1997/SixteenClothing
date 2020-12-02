@@ -1,7 +1,10 @@
+import React from 'react';
+import Banner from '../components/Banner/Banner'
+
 const ContactUS = ()=>{
     return (
         <>
-            <h1>Contact Us</h1>
+        <Banner type="simple" category="Contact Us Banner" />
         </>
     );
 }
