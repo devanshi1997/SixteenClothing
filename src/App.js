@@ -7,7 +7,7 @@ import ContactUS from './Pages/ContactUs';
 import Navigation from './components/Navigation/Navigation';
 import ServiceDetail from './components/ServicesSixteenClothing/ServiceDetail';
 import './App.css';
-import Banner from './components/Banner/Banner';
+
 
 class App extends Component {
   render() {
