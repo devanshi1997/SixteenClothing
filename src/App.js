@@ -4,6 +4,7 @@ import OurProducts from './Pages/OurProducts';
 import AboutUs from './Pages/AboutUs';
 import ContactUS from './Pages/ContactUs';
 import './App.css';
+import Banner from './components/Banner/Banner';
 
 class App extends Component {
   render() {
@@ -14,6 +15,8 @@ class App extends Component {
           <OurProducts />
           <AboutUs />
           <ContactUS />
+          <Banner type="simple" category="About Us Banner"/>
+          <Banner type="carousel" />
       </div>
     );
   }
