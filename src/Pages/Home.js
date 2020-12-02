@@ -1,7 +1,10 @@
+import AboutSixteenClothing from '../components/AboutSixteenClothing/AboutSixteenClothing';
+import CreativeSixteenProducts from '../components/CreativeSixteenProducts/CreativeSixteenProducts';
 const Home = () => {
     return (
         <>
-            <h1>Home</h1>
+            <AboutSixteenClothing />
+            <CreativeSixteenProducts/>
         </>
     );
 }
