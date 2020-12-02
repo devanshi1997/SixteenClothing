@@ -5,4 +5,23 @@
   text-align: justify;
 }
 
+.service-detail{
+  margin-top:  10%;
+}
+
+.service-detail-title{
+  text-align: center;
+  color: chocolate;
+}
+
+.service-detail-description{
+  text-align: justify;
+}
+
+.service-detail-image{
+ margin-left: 24%;
+}
+
+
+
 /* hello-test */
