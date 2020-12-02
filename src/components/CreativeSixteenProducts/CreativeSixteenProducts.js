@@ -3,7 +3,6 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import parse from 'html-react-parser';
 import { Link } from "react-router-dom";
 
-import Button from '../UI/Button';
 
 
 const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env
