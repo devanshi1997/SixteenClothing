@@ -479,18 +479,28 @@ header .navbar {
 .about-features p {
 	border-bottom: 1px solid #eee;
 	padding-bottom: 20px;
-}
+} 
 
 .about-features .container .row {
 	padding-bottom: 0px!important;
 	border-bottom: none!important;
-}
+} 
 
 .best-features {
 	margin-top: 50px;
 }
 
-.best-features .container .row {
+/* .best-features .container .row {
+	border-bottom: 1px solid #eee;
+	padding-bottom: 60px;
+} */
+
+ .best-features .container{
+	border-bottom: 1px solid #eee;
+	padding-bottom: 60px;
+}
+
+.call-to-action{
 	border-bottom: 1px solid #eee;
 	padding-bottom: 60px;
 }
