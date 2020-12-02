@@ -5,6 +5,7 @@ import OurProducts from './Pages/OurProducts';
 import AboutUs from './Pages/AboutUs';
 import ContactUS from './Pages/ContactUs';
 import Navigation from './components/Navigation/Navigation';
+import ServiceDetail from './components/ServicesSixteenClothing/ServiceDetail';
 import './App.css';
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
             <Route path="/products" component={OurProducts} />
             <Route path="/about" component={AboutUs} />
             <Route path="/contact" component={ContactUS} />
+            <Route path="/services/:service_name" component={ServiceDetail} />           
       </Router>
     );
   }
