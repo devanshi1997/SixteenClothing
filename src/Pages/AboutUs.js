@@ -1,7 +1,9 @@
+import ServicesSixteenClothing from '../components/ServicesSixteenClothing/ServicesSixteenClothing';
+
 const AboutUs = ()=>{
     return (
         <>
-            <h1>About Us</h1>
+            <ServicesSixteenClothing/>
         </>
     );
 }
