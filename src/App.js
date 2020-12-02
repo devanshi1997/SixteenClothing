@@ -5,7 +5,7 @@ import OurProducts from './Pages/OurProducts';
 import AboutUs from './Pages/AboutUs';
 import ContactUS from './Pages/ContactUs';
 import Navigation from './components/Navigation/Navigation';
-import ServiceDetail from './components/ServicesSixteenClothing/ServiceDetail';
+
 import './App.css';
 
 
