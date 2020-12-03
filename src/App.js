@@ -20,7 +20,7 @@ class App extends Component {
             <Route path="/products" component={OurProducts} />
             <Route path="/about" component={AboutUs} />
             <Route path="/contact" component={ContactUS} />
-            <Route path="/services/:service_name" component={ServiceDetail} />           
+                     
       </Router>
 
     );
