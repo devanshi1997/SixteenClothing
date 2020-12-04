@@ -1,8 +1,11 @@
 import React from 'react'
+import ScriptTag from 'react-script-tag';
 import './Hero.css';
+// import $ from 'jquery'
 
 const HeroCarousel = (props) => {
-
+    // <ScriptTag type="text/javascript" src="../../Script/owl.js"/>
+    
     return (
         <div class="banner header-text">
             <div class="owl-banner owl-carousel">
@@ -27,7 +30,7 @@ const HeroCarousel = (props) => {
                                 <h2>{props.subtitle[1]}</h2>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </div>
                 <div class="banner-item-03">
                     <img className="img-responsive Banner-img" src={props.src[2]} />

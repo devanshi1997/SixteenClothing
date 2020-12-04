@@ -17,7 +17,7 @@ class App extends Component {
       <Router>
         <Navigation />
             <Redirect to="/home" />
-            <Route path="/home" component={Home} />
+            <Route exact path="/home" component={Home} />
             <Route path="/products" component={OurProducts} />
             <Route path="/about" component={AboutUs} />
             <Route path="/contact" component={ContactUS} />

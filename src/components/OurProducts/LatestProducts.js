@@ -52,7 +52,9 @@ class LatestProducts extends Component {
             this.setState({
                 loading: false,
                 products: data ? data.productCollection.items : []
+                
             });
+            // console.log(this.state)
         })
         .catch(error => {
             this.setState({
@@ -63,6 +65,8 @@ class LatestProducts extends Component {
     }
     render(){
         const {products} = this.state;
+        console.log("productdata")
+        console.log(products)
         return(
         <>
         {
