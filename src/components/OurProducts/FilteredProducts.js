@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ScriptTag  from 'react-script-tag'
 
 const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env;
 const query = `{
@@ -71,6 +72,8 @@ class FilteredProducts extends Component {
         return(
         <>
         {
+            <div>
+                <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/custom.js'}/>
             <div className="products">
             <div className="container">
               <div className="row">
@@ -118,16 +121,8 @@ class FilteredProducts extends Component {
                         </div>
                     </div>
                     </div>
-                    {/* <div className="col-md-12">
-                        <ul className="pages">
-                            <li><a href="#">1</a></li>
-                            <li className="active"><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#"><i className="fa fa-angle-double-right"></i></a></li>
-                         </ul>
-                    </div> */}
                 </div>
+            </div>
             </div>
             </div>
         }
