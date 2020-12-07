@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {  Link } from 'react-router-dom';
 import ScriptTag  from 'react-script-tag'
 
 const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env;
@@ -43,7 +42,7 @@ class HappyPartners extends Component {
         )
         .then(res => res.json())
         .then(response =>{
-            console.log(response);
+            //console.log(response);
 
             const {data} = response;
             this.setState({
@@ -63,44 +62,42 @@ class HappyPartners extends Component {
         return(
         <>
         {
-            <div class="happy-clients">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="section-heading">
-              <h2>Happy Partners</h2>
+          <div>
+          <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/custom.js'}/>
+            <div className="happy-clients">
+            <div className="container">
+                <div className="row">
+                <div className="col-md-12">
+                  <div className="section-heading">
+                    <h2>Happy Partners</h2>
+                  </div>
+                </div>
+                <div className="col-md-12">
+                <div className="owl-clients owl-carousel">    
+                    {
+                        partners.map((partner,i) => {
+                            return (
+                            <>
+                                <div className="client-item">
+                                <img
+                                    src = {partner.profilePicture.url}
+                                    alt = {partner.profilePicture.title}
+                                />
+                                <div className="team-member">
+                                  <div className=" down-content">
+                                  <h4>{partner.name}</h4></div>
+                                </div>
+                                </div>
+                            </>
+                            )
+                        })
+                    }
+                </div>
+                </div>
+                </div>
             </div>
-          </div>
-          <div class="col-md-12">
-            <div class="owl-clients owl-carousel">
-              <div class="client-item">
-                <img src="../HappyPartners/p4.jpg" alt="1"/>
-              </div>
-              
-              <div class="client-item">
-                <img src="../HappyPartners/p4.jpg" alt="2"/>
-              </div>
-              
-              <div class="client-item">
-                <img src="../HappyPartners/p4.jpg" alt="3"/>
-              </div>
-              
-              <div class="client-item">
-                <img src="../HappyPartners/p4.jpg" alt="4"/>
-              </div>
-              
-              <div class="client-item">
-                <img src="../HappyPartners/p4.jpg" alt="5"/>
-              </div>
-              
-              <div class="client-item">
-                <img src="../HappyPartners/p4.jpg" alt="6"/>
-              </div>
-            </div>`
-          </div>
-        </div>
-      </div>
-    </div>          
+            </div>     
+            </div>           
               
         }
         </>)
