@@ -3,7 +3,9 @@ import Banner from '../components/Banner/Banner'
 import AboutSixteenClothing from '../components/AboutSixteenClothing/AboutSixteenClothing';
 import CreativeSixteenProducts from '../components/CreativeSixteenProducts/CreativeSixteenProducts';
 import LatestProducts from '../components/OurProducts/LatestProducts';
-// import ScriptTag from 'react-script-tag';
+
+import FooterIdentity from '../components/footer/FooterIdentity';
+
 
 const Home = () => {
     // <ScriptTag type="text/javascript" src="../../Script/jquery.min.js"/>
@@ -13,6 +15,9 @@ const Home = () => {
             <LatestProducts />
             <AboutSixteenClothing />
             <CreativeSixteenProducts />
+            <FooterIdentity/>
+           
+            
         </>
     )
 }

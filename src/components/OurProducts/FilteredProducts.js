@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import ScriptTag  from 'react-script-tag'
+import { withRouter } from 'react-router-dom';
 
 const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env;
 const query = `{
@@ -15,6 +17,9 @@ const query = `{
         rating
         reviews
         category
+        details{
+            json
+          }
       }
     }
   }
@@ -100,7 +105,13 @@ class FilteredProducts extends Component {
                                     <div className="product-item">
                                     <a href="#"><img src={product.productPhoto.url} alt={product.productPhoto.title}/></a>
                                     <div className="down-content">
-                                        <a href="#"><h4>{product.title}</h4></a>
+                                    <Link to={{
+                          pathname: `ProductDetails/${product.title}`,
+                          product: product
+                        }}>
+                             <h4>{product.title}</h4>
+                            </Link>
+                                       
                                         <h6>${product.price}</h6>
                                         <p>{product.description}</p>
                                         <ul className="stars">
@@ -131,4 +142,4 @@ class FilteredProducts extends Component {
 }
 
 
-export default FilteredProducts
+export default withRouter(FilteredProducts) 

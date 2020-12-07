@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {  Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env;
 const query = `{
@@ -14,6 +15,9 @@ const query = `{
         price
         rating
         reviews
+        details{
+          json
+        }
       }
     }
   }
@@ -88,7 +92,15 @@ class LatestProducts extends Component {
                         <div className="product-item"  key={i}>
                             <a href="#"><img src={product.productPhoto.url} alt={product.productPhoto.title}/></a>
                             <div className="down-content">
-                            <a href="#"><h4>{product.title}</h4></a>
+                            <Link to={{
+                          pathname: `ProductDetails/${product.title}`,
+                          product: product
+                        }}>
+                          <h4>{product.title}</h4>
+                        {/* <Link to='/ProductDetails/${product.title}'><h4>{product.title}</h4></Link> */}
+                                   
+                              </Link>
+                         
                             <h6>${product.price}</h6>
                             <p>{product.description}</p>
                             <ul className="stars">
@@ -116,4 +128,4 @@ class LatestProducts extends Component {
     }
 }
 
-export default LatestProducts
+export default withRouter (LatestProducts)
