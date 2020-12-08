@@ -314,8 +314,22 @@ header .navbar {
 	position: relative;
 	text-align: center;
 	padding-top: 80px;
+	height: 80vh;
+	overflow: hidden;
 }
-
+.carousel{
+	height: 100%;
+}
+.carousel-inner{
+	height: 100%;
+}
+.carousel-item{
+	height: 100%;
+}
+.carousel-item .Banner-img{
+	width: 100%;
+	height: auto;
+}
 /* .banner-item-01 {
 	padding: 300px 0px;
 	background-image: url(../images/slide_01.jpg);
