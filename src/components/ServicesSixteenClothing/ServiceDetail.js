@@ -6,18 +6,22 @@ import parse from 'html-react-parser';
 class ServiceDetail extends Component{
 
     state={
-        service: [],
-        des: ''
+        title: '',
+        img: '', 
+        des: '',
     }
 
     componentDidMount(){
         let service = this.props.location.service;
-        // console.log(service.description.json);
+       
         localStorage.setItem('description', JSON.stringify(service.description.json));
+        localStorage.setItem('image', JSON.stringify(service.image));
+        localStorage.setItem('title', JSON.stringify(service.title));
+
         this.setState({
-            ...this.state.service,
-            service: service,
-            des: JSON.parse(localStorage.getItem('description'))
+            img: JSON.parse(localStorage.getItem('image')),
+            des: JSON.parse(localStorage.getItem('description')),
+            title: JSON.parse(localStorage.getItem('title'))
         })
        
         console.log(service);
@@ -45,12 +49,12 @@ class ServiceDetail extends Component{
                       <div className="col-md-12">
                             
                         <div className="service-detail service-item">
-                          <h2 className="service-detail-title">{this.state.service.title}</h2>
+                          <h2 className="service-detail-title">{this.state.title}</h2>
                         </div>
                         <br/>
-                            {
-                                    this.state.service.image && 
-                                    <img className="service-detail-image" src={this.state.service.image.url} alt={this.state.service.title} />
+                            {       
+                                this.state.img && 
+                                <img className="service-detail-image" src={ this.state.img.url} alt={this.state.img.title} />   
                             }
                             <br/>
                             <br/>

@@ -14,7 +14,7 @@
   color: chocolate;
 }
 
-.service-detail-description{
+.service-detail-description,.content{
   text-align: justify;
 }
 

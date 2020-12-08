@@ -25,7 +25,7 @@ const query = `
   
   `
 
-const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env;
+const { REACT_APP_SPACE_ID } = process.env;
 
 export class OurTeam extends Component {
 

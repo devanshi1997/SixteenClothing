@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env;
 const query = `

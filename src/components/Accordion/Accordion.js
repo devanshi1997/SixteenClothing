@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { AccordionCollapse } from 'react-bootstrap';
-import {  Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ScriptTag from 'react-script-tag'
 
 const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env;
@@ -14,8 +14,8 @@ const query = `{
   }
   `;
 
-  class Accordion extends Component {
-    constructor(){
+class Accordion extends Component {
+    constructor() {
         super();
 
         this.state = {
@@ -25,13 +25,13 @@ const query = `{
         };
     }
 
-     componentDidMount() {
+    componentDidMount() {
         window.fetch(
             `https://graphql.contentful.com/content/v1/spaces/${REACT_APP_SPACE_ID}`,
             {
                 method: "POST",
-                headers:{
-                    "content-type":"application/json",
+                headers: {
+                    "content-type": "application/json",
                     authorization: `Bearer ${REACT_APP_CDA_ACCESS_TOKEN}`
                 },
                 body: JSON.stringify({
@@ -39,92 +39,68 @@ const query = `{
                 })
             }
         )
-        .then(res => res.json())
-        .then(response =>{
-            console.log(response);
+            .then(res => res.json())
+            .then(response => {
+                console.log(response);
 
-            const {data} = response;
-            this.setState({
-                loading: false,
-                accord: data ? data.accordionCollection.items : []
-            });
-        })
-        .catch(error => {
-            this.setState({
-                loading: false,
-                error: error.message
-            });
-        })
+                const { data } = response;
+                this.setState({
+                    loading: false,
+                    accord: data ? data.accordionCollection.items : []
+                });
+            })
+            .catch(error => {
+                this.setState({
+                    loading: false,
+                    error: error.message
+                });
+            })
     }
 
-    render(){
+    render() {
 
-        const {accord } = this.state;
+        const { accord } = this.state;
 
-        return(
-           <>
-           { <div>
+        return (
+            <>
+                { <div>
 
-            <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/jquery.min.js'}/>
-            <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/custom.js'}/>
-            <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/slick.js'}/>
-            <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/isotope.js'}/>
-            <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/accordions.js'}/>
-            
-            
-       
-             
+                    <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/jquery.min.js'} />
+                    <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/custom.js'} />
+                    <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/slick.js'} />
+                    <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/isotope.js'} />
+                    <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/accordions.js'} />
 
-            <div className="send-message">
-            <div className="container">
-            <div className="row">
-
-              <div className="col-md-4" >
-              <ul className="accordion">
+                    <ul className="accordion">
                         {
-                            accord.map((accords,i) => {
-                                 return(
-                                     <>
-                                         
-                                            
-                                                 <li key={i}>
-                                                     <a>
-                                                         
-                                                         {accords.title}
+                            accord.map((accords, i) => {
+                                return (
+                                    <>
+                                        <li key={i}>
+                                            <a>
+                                                {accords.title}
+                                            </a>
+                                            <div className="content">
+                                                <p>
+                                                    {accords.summary}
+                                                </p>
+                                            </div>
+                                        </li>
 
-                                                     </a>
-                                                     <div className="content">
-                                                         <p> 
-                                                             {accords.summary}
-                                                         </p>
-                                                     </div>
-                                                 </li>
+                                    </>
 
-                                         
-                                      
-
-
-                                     </> 
-                                        
-
-                                        
-                                        );
-                                    })
+                                );
+                            })
                         }
-                            </ul>
-                      </div>
-                    </div>
+                    </ul>
                 </div>
-            </div>
 
-            </div>
-
-           }
-           </>
+                }
+            </>
         )
 
 
- 
+
     }
 }
 
