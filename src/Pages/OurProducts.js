@@ -8,7 +8,6 @@ const OurProducts = () =>{
         <>
             <Banner type="simple" category="Our Products Banner" />
             <FilteredProducts/>
-            <FooterIdentity/>
         </>
     );
 }

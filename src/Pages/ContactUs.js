@@ -12,7 +12,6 @@ const ContactUS = ()=>{
         <LocationMap/>
         <SendUSMessageContainer/>
         {/* <Accordion/> */}
-        <FooterIdentity/>
 
         </>
     );
