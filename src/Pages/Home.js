@@ -2,10 +2,10 @@ import React from 'react';
 import Banner from '../components/Banner/Banner'
 import AboutSixteenClothing from '../components/AboutSixteenClothing/AboutSixteenClothing';
 import CreativeSixteenProducts from '../components/CreativeSixteenProducts/CreativeSixteenProducts';
-import LatestProducts from '../components/OurProducts/LatestProducts';
+// import LatestProducts from '../components/OurProducts/LatestProducts';
 
-import FooterIdentity from '../components/footer/FooterIdentity';
-import OurProductShubh from '../components/OurProductShubh/OurProductShubh';
+// import FooterIdentity from '../components/footer/FooterIdentity';
+import OurProduct from '../components/OurProduct/OurProduct';
 
 
 const Home = () => {
@@ -13,8 +13,8 @@ const Home = () => {
     return (
         <>  
             <Banner type="carousel" />
-            <OurProductShubh />
-            <LatestProducts />
+            <OurProduct />
+           
             <AboutSixteenClothing />
             <CreativeSixteenProducts />
            
