@@ -6,22 +6,14 @@ import parse from 'html-react-parser';
 class ServiceDetail extends Component{
 
     state={
-        title: '',
-        img: '', 
-        des: '',
+        service: [],
     }
 
     componentDidMount(){
         let service = this.props.location.service;
-       
-        localStorage.setItem('description', JSON.stringify(service.description.json));
-        localStorage.setItem('image', JSON.stringify(service.image));
-        localStorage.setItem('title', JSON.stringify(service.title));
 
         this.setState({
-            img: JSON.parse(localStorage.getItem('image')),
-            des: JSON.parse(localStorage.getItem('description')),
-            title: JSON.parse(localStorage.getItem('title'))
+            service: service
         })
        
         console.log(service);
@@ -31,8 +23,8 @@ class ServiceDetail extends Component{
 
         let description;
 
-        if (this.state.des)
-            description = this.state.des;
+        if (this.state.service.description)
+            description = this.state.service.description.json;
         else
             return (
                 <p>No Description</p>
@@ -42,6 +34,9 @@ class ServiceDetail extends Component{
         let richTextSummary = documentToHtmlString(rawRichTextField);
         let serviceSummary = parse(richTextSummary);
 
+        
+
+
         return(
                 <>
                 <div className="container">
@@ -49,12 +44,14 @@ class ServiceDetail extends Component{
                       <div className="col-md-12">
                             
                         <div className="service-detail service-item">
-                          <h2 className="service-detail-title">{this.state.title}</h2>
+                          {/* <h2 className="service-detail-title">{this.state.title}</h2> */}
+                          <h2 className="service-detail-title">{this.state.service.title}</h2>
                         </div>
                         <br/>
                             {       
-                                this.state.img && 
-                                <img className="service-detail-image" src={ this.state.img.url} alt={this.state.img.title} />   
+                    
+                                this.state.service.image && 
+                                <img className="service-detail-image" src={ this.state.service.image.url} alt={this.state.service.image.title} />   
                             }
                             <br/>
                             <br/>
