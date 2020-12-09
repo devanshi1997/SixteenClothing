@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import ScriptTag  from 'react-script-tag'
+import ScriptTag from 'react-script-tag'
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env;
 const query = `{
@@ -14,9 +16,27 @@ const query = `{
     }
   }
   `;
-
+const responsive = {
+    superLargeDesktop: {
+        // the naming can be any, depends on you.
+        breakpoint: { max: 4000, min: 3000 },
+        items: 5
+    },
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 5
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 2
+    },
+    mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 1
+    }
+};
 class HappyPartners extends Component {
-    constructor(){
+    constructor() {
         super();
 
         this.state = {
@@ -31,8 +51,8 @@ class HappyPartners extends Component {
             `https://graphql.contentful.com/content/v1/spaces/${REACT_APP_SPACE_ID}`,
             {
                 method: "POST",
-                headers:{
-                    "content-type":"application/json",
+                headers: {
+                    "content-type": "application/json",
                     authorization: `Bearer ${REACT_APP_CDA_ACCESS_TOKEN}`
                 },
                 body: JSON.stringify({
@@ -40,67 +60,62 @@ class HappyPartners extends Component {
                 })
             }
         )
-        .then(res => res.json())
-        .then(response =>{
-            //console.log(response);
+            .then(res => res.json())
+            .then(response => {
+                console.log(response);
 
-            const {data} = response;
-            this.setState({
-                loading: false,
-                partners: data ? data.companyRelationCollection.items : []
-            });
-        })
-        .catch(error => {
-            this.setState({
-                loading: false,
-                error: error.message
-            });
-        })
+                const { data } = response;
+                this.setState({
+                    loading: false,
+                    partners: data ? data.companyRelationCollection.items : []
+                });
+            })
+            .catch(error => {
+                this.setState({
+                    loading: false,
+                    error: error.message
+                });
+            })
     }
-    render(){
-        const {partners} = this.state;
-        return(
-        <>
-        {
-          <div>
-          <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/custom.js'}/>
-            <div className="happy-clients">
-            <div className="container">
-                <div className="row">
-                <div className="col-md-12">
-                  <div className="section-heading">
-                    <h2>Happy Partners</h2>
-                  </div>
-                </div>
-                <div className="col-md-12">
-                <div className="owl-clients owl-carousel">    
-                    {
-                        partners.map((partner,i) => {
-                            return (
-                            <>
-                                <div className="client-item">
-                                <img
-                                    src = {partner.profilePicture.url}
-                                    alt = {partner.profilePicture.title}
-                                />
-                                <div className="team-member">
-                                  <div className=" down-content">
-                                  <h4>{partner.name}</h4></div>
+    render() {
+        const { partners } = this.state;
+        return (
+            <>
+                <div className="happy-clients">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="section-heading">
+                                    <h2>Happy Partners</h2>
                                 </div>
-                                </div>
-                            </>
-                            )
-                        })
-                    }
-                </div>
-                </div>
+                            </div>
+                            <div className="col-md-12">
+                                <Carousel responsive={responsive}>
+                                    {
+                                        partners.map((partner, i) => {
+                                            <h1>{console.log(partner.name)}</h1>
+                                            return (
+
+                                                <div className="client-item">
+                                                    <img
+                                                        src={partner.profilePicture.url}
+                                                        alt={partner.profilePicture.title}
+                                                    />
+                                                    <div className="happyClientText"> 
+                                                            <p>{partner.name}</p></div>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                         
+                                    
+                                </Carousel>
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>     
-            </div>           
-              
-        }
-        </>)
+
+            </>)
     }
 }
 
