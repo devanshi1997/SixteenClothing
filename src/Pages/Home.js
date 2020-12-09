@@ -17,7 +17,6 @@ const Home = () => {
             <LatestProducts />
             <AboutSixteenClothing />
             <CreativeSixteenProducts />
-            <FooterIdentity/>
            
             
         </>

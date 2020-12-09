@@ -6,8 +6,8 @@ import AboutUs from './Pages/AboutUs';
 import ContactUS from './Pages/ContactUs';
 import Navigation from './components/Navigation/Navigation';
 import ServiceDetail from "./components/ServicesSixteenClothing/ServiceDetail";
-import ProductDetail from "./components/OurProducts/ProductDetails";
-import ProductDetailShubh from './components/OurProductShubh/ProductDetailShubh';
+// import ProductDetail from "./components/OurProducts/ProductDetails";
+import ProductDetail from './components/OurProduct/ProductDetail';
 import ErrorPage from './Pages/Error';
 import { Route, Switch } from 'react-router-dom';
 
@@ -29,11 +29,11 @@ function App() {
           <Route exact path="/about" component={AboutUs} />
           <Route exact path="/contact" component={ContactUS} />
           <Route exact path="/services/:service_name" component={ServiceDetail} />
-          <Route exact path="/ProductDetails" component={ProductDetail} />
-          <Route path="/products/:title" component={ProductDetailShubh} />
+          <Route path="/products/:title" component={ProductDetail} />
           <Route><ErrorPage /></Route>
          </Switch>           
       </>
+
     );
   }
 

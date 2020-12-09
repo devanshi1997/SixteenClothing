@@ -5,7 +5,7 @@ import 'react-multi-carousel/lib/styles.css';
 
 const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env;
 const query = `{
-    companyRelationCollection(order: name_ASC, where: {category_contains: "partner"}) {
+    companyRelationCollection(order: name_ASC, where: {category_contains: "customer"}) {
       items {
         name
         profilePicture {
@@ -35,7 +35,7 @@ const responsive = {
         items: 1
     }
 };
-class HappyPartners extends Component {
+class HappyCustomers extends Component {
     constructor() {
         super();
 
@@ -86,7 +86,7 @@ class HappyPartners extends Component {
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="section-heading">
-                                    <h2>Happy Partners</h2>
+                                    <h2>Happy Customers</h2>
                                 </div>
                             </div>
                             <div className="col-md-12">
@@ -119,4 +119,4 @@ class HappyPartners extends Component {
     }
 }
 
-export default HappyPartners
+export default HappyCustomers

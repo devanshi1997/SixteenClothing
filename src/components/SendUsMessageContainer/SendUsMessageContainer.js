@@ -1,6 +1,6 @@
 import React from 'react';
 import Accordian from '../Accordion/Accordion';
-
+import ContactForm from '../ContactForm/ContactForm';
 const SendUsMessageContainer = () => {
     return (
         <div className="send-message">
@@ -12,7 +12,7 @@ const SendUsMessageContainer = () => {
                         </div>
                     </div>
                     <div className="col-md-8">
-                        {/* Form Goes Here */}
+                    <ContactForm/>
                     </div>
                     <div className="col-md-4">
                         <Accordian/>

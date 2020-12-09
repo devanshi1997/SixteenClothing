@@ -18,7 +18,6 @@ const AboutUs = () => {
             <OurTeam />
             <ServicesSixteenClothing />
             <HappyPartners/>
-            <FooterIdentity/>
 
         </>
     );
