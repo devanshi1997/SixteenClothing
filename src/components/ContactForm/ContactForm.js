@@ -33,7 +33,7 @@ class ContactForm extends Component {
         let messageError="";
         let isValid=true;
     
-        if (this.state.name === ""  ) {
+        if (this.state.name === "" || this.state.name.match("^[0-9]+$") ) {
          nameError = "Invalid Name, please enter correct name";
            
         }
@@ -108,11 +108,9 @@ class ContactForm extends Component {
     
       }
       else{
-          alert("Error");
+          alert("Error! Please fill correct details");
           this.refreshForm();
-          
-        
-      }
+          }
       
       
       
@@ -132,15 +130,11 @@ class ContactForm extends Component {
                                         type="text" 
                                         className="form-control" 
                                         id="name" 
-                                        
                                         placeholder="Full Name" 
-                                        required
-                                        onChange={this.handleChange} onBlur ={this.blur}
-                                        
-                                    />
-                                    <div style={{ fontSize: 18, color: "red" }}>
-                                    {this.state.nameError}
-                                    </div>
+                                        onChange={this.handleChange} onBlur ={this.blur}/>
+                                        <div style={{ fontSize: 18, color: "red" }}>
+                                        {this.state.nameError}
+                                        </div>
                                 </fieldset>
                             </div>
 
@@ -155,11 +149,12 @@ class ContactForm extends Component {
                                         required
                                         onChange={this.handleChange} onBlur={this.blur}
                                     />
+                                    
+                                </fieldset>
+                            </div>
                                     <div style={{ fontSize: 18, color: "red" }}>
                                     {this.state.emailError}
                                     </div>
-                                </fieldset>
-                            </div>
 
                             <div className="col-lg-12 col-md-12 col-sm-12">
                                 <fieldset>
@@ -172,7 +167,7 @@ class ContactForm extends Component {
                                         required 
                                         onChange={this.handleChange} onBlur={this.blur}
                                     />
-                                      <div style={{ fontSize: 18, color: "red" }}>
+                                    <div style={{ fontSize: 18, color: "red" }}>
                                     {this.state.subjectError}
                                     </div>
                                 </fieldset>
