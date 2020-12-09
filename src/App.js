@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+import React from 'react';
+import './App.css';
 import Home from './Pages/Home';
 import OurProducts from './Pages/OurProducts';
 import AboutUs from './Pages/AboutUs';
@@ -7,28 +7,35 @@ import ContactUS from './Pages/ContactUs';
 import Navigation from './components/Navigation/Navigation';
 import ServiceDetail from "./components/ServicesSixteenClothing/ServiceDetail";
 import ProductDetail from "./components/OurProducts/ProductDetails";
+import ProductDetailShubh from './components/OurProductShubh/ProductDetailShubh';
+import ErrorPage from './Pages/Error';
+import { Route, Switch } from 'react-router-dom';
 
-import './App.css';
 
-
-class App extends Component {
-  render() {
-    return (
-
-      <Router>
-        <Navigation />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/" component={Home} />
-            <Route path="/products" component={OurProducts} />
-            <Route path="/about" component={AboutUs} />
-            <Route path="/contact" component={ContactUS} />
-            <Route path="/services/:service_name" component={ServiceDetail}/>
-            <Route path="/ProductDetails" component={ProductDetail}/>
-                     
-      </Router>
-
+// class App extends Component {
+//   render() {
+function App() {
+  return (
+          <>
+      <Navigation />
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+          </Route>
+          <Route path="/home" exact>
+          <Home />
+          </Route>
+          <Route exact path="/products" component={OurProducts} />
+          <Route exact path="/about" component={AboutUs} />
+          <Route exact path="/contact" component={ContactUS} />
+          <Route exact path="/services/:service_name" component={ServiceDetail} />
+          <Route exact path="/ProductDetails" component={ProductDetail} />
+          <Route path="/products/:title" component={ProductDetailShubh} />
+          <Route><ErrorPage /></Route>
+         </Switch>           
+      </>
     );
   }
-}
+
 
 export default App;

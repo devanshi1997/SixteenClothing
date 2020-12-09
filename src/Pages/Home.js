@@ -5,6 +5,7 @@ import CreativeSixteenProducts from '../components/CreativeSixteenProducts/Creat
 import LatestProducts from '../components/OurProducts/LatestProducts';
 
 import FooterIdentity from '../components/footer/FooterIdentity';
+import OurProductShubh from '../components/OurProductShubh/OurProductShubh';
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
     return (
         <>  
             <Banner type="carousel" />
+            <OurProductShubh />
             <LatestProducts />
             <AboutSixteenClothing />
             <CreativeSixteenProducts />
