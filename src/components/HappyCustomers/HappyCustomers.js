@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import ScriptTag from 'react-script-tag'
+import React, { Component } from 'react';
+// import ScriptTag from 'react-script-tag'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 

@@ -28,7 +28,10 @@ export default class OurProductShubh extends Component {
                                 <>
                                 <div className="col-md-4">
                                 <div className="product-item"  key={i}>
-                                    <a href="#"><img src={product.productPhoto.url} alt={product.productPhoto.title}/></a>
+                                <Link to={{
+                                    pathname: `products/${product.title}`,
+                                    product: product
+                                  }}><img src={product.productPhoto.url} alt={product.productPhoto.title}/></Link>
                                     <div className="down-content">
                                     <Link to={{
                                   pathname: `products/${product.title}`,

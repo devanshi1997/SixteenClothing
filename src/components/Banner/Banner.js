@@ -39,7 +39,7 @@ export default class Banner extends Component {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer gj_n5GeHF7VyBk35wHm7KuXb7ymL0S6cubsu4iyofuI`
+          Authorization: `Bearer ${REACT_APP_CDA_ACCESS_TOKEN}`
         },
         body: JSON.stringify({ query }),
       }
