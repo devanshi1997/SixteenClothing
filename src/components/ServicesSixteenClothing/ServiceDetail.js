@@ -4,18 +4,17 @@ import parse from 'html-react-parser';
 import { ServiceContext } from '../../context/ServiceContext'
 
 
-class ServiceDetail extends Component{
+class ServiceDetail extends Component {
 
-    state={
-         title: this.props.match.params.service_name
+    state = {
+        title: this.props.match.params.service_name
     }
 
     static contextType = ServiceContext;
 
-    render(){
+    render() {
         const { getService } = this.context;
         const service = getService(this.state.title);
-        console.log(service);
         if (!service) {
             return (
                 <div className="banner header-text">
@@ -38,36 +37,33 @@ class ServiceDetail extends Component{
         let richTextSummary = documentToHtmlString(rawRichTextField);
         let serviceSummary = parse(richTextSummary);
 
-        
-
-
-        return(
-                <>
+        return (
+            <>
                 <div className="container">
-                   <div className="row">
-                      <div className="col-md-12">
-                            
-                        <div className="service-detail service-item">
-                          <h2 className="service-detail-title">{service.title}</h2>
-                        </div>
-                        <br/>
-                            {       
-                    
-                                service.image && 
-                                <img className="service-detail-image" src={ service.image.url} alt={service.image.title} />   
+                    <div className="row">
+                        <div className="col-md-12">
+
+                            <div className="service-detail service-item">
+                                <h2 className="service-detail-title">{service.title}</h2>
+                            </div>
+                            <br />
+                            {
+
+                                service.image &&
+                                <img className="service-detail-image" src={service.image.url} alt={service.image.title} />
                             }
-                            <br/>
-                            <br/>
-                        <section className="service-detail-description">
-                           <article>
-                               {serviceSummary}
-                            </article> 
-                        </section>
-                      </div>
-                      </div>
+                            <br />
+                            <br />
+                            <section className="service-detail-description">
+                                <article>
+                                    {serviceSummary}
+                                </article>
+                            </section>
+                        </div>
                     </div>
-                    
-                </>
+                </div>
+
+            </>
         )
     }
 }
