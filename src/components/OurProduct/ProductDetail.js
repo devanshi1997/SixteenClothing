@@ -73,9 +73,9 @@ export default class ProductDetailShubh extends Component {
                     </div>
                    
                     <div className="productDetailDescription">
-                    <p>
+                    <div>
                        {productSummary}
-                    </p> 
+                    </div> 
                     </div>
                   </div>
                   </div>

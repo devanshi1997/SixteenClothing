@@ -26,7 +26,7 @@ export default class LatestProducts extends Component {
                                 return (
                                 <>
 
-                                <div className="col-md-4" key={Math.random()}>
+                                <div className="col-md-4">
                                 <div className="product-item">
                                 <Link to={{
                                   pathname: `products/${product.title}`,

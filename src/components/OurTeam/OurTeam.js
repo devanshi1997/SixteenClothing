@@ -29,17 +29,6 @@ const { REACT_APP_SPACE_ID } = process.env;
 
 export class OurTeam extends Component {
 
-    // state = {
-    //     imageUrl: [],
-    //     imageAlt: [],
-    //     name: [],
-    //     designation: [],
-    //     description: [],
-    //     facebookUrl: [],
-    //     twitterUrl: [],
-    //     linkedInUrl: [],
-    //     behanceUrl: []
-    // }
     state = {
         thumbnailDetail: {
             thumbnails: [],
@@ -61,19 +50,10 @@ export class OurTeam extends Component {
             }
         ).then(res => res.json())
             .then(({ data }) => {
-                // console.log(data);
                 let thumbnails = data.ourTeamMembersCollection.items;
-                // let images = data.ourTeamMembersCollection.items.map(item => item.image);
                 let socialMediaReference = data.ourTeamMembersCollection.items.map(item => item.socialMediaReference);
                 let imageUrl = data.ourTeamMembersCollection.items.map(item => item.image.url);
-                // let imageAlt = data.ourTeamMembersCollection.items.map(item => item.image.title);
-                // let name = data.ourTeamMembersCollection.items.map(item => item.name);
-                // let designation = data.ourTeamMembersCollection.items.map(item => item.designation);
-                // let description = data.ourTeamMembersCollection.items.map(item => item.description);
-                // let facebookUrl = data.ourTeamMembersCollection.items.map(item => item.socialMediaReference.facebookUrl);
-                // let twitterUrl = data.ourTeamMembersCollection.items.map(item => item.socialMediaReference.twitterUrl);
-                // let linkedInUrl = data.ourTeamMembersCollection.items.map(item => item.socialMediaReference.linkedInUrl);
-                // let behanceUrl = data.ourTeamMembersCollection.items.map(item => item.socialMediaReference.behanceUrl);
+    
 
                 this.setState({
                     thumbnailDetail: {
@@ -81,23 +61,13 @@ export class OurTeam extends Component {
                         imageUrl,
                         socialMediaReference
                     }
-                    // imageUrl,
-                    // imageAlt,
-                    // name,
-                    // designation,
-                    // description,
-                    // facebookUrl,
-                    // twitterUrl,
-                    // linkedInUrl,
-                    // behanceUrl
                 });
-                console.log(this.state.thumbnailDetail.thumbnails);
+                //console.log(this.state.thumbnailDetail.thumbnails);
             })
             .catch(error => console.log(error));
     }
 
     render() {
-        // const thumbnailDetail = Object.assign([], this.state.thumbnailDetail);
         // console.log(thumbnailDetail)
         let thumbnails = null;
         thumbnails = (
@@ -109,11 +79,11 @@ export class OurTeam extends Component {
             </>
         )
         return (
-            <div class="team-members">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="section-heading">
+            <div className="team-members">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="section-heading">
                                 <h2>Our Team Members</h2>
                             </div>
                         </div>

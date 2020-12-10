@@ -44,7 +44,7 @@ class LocationMap extends Component {
         )
             .then(res => res.json())
             .then(response => {
-                console.log(response);
+                //console.log(response);
 
                 const { data } = response;
                 this.setState({
@@ -92,7 +92,7 @@ class LocationMap extends Component {
 
                                                 </div>
                                                 <div className="col-md-8">
-                                                    <iframe title="Map" frameBorder="0" width="730" height="337" src={_url} style={{ border: 0 }}   aria-hidden="false" tabindex="0">
+                                                    <iframe title="Map" frameBorder="0" width="730" height="337" src={_url} style={{ border: 0 }}   aria-hidden="false" tabIndex="0">
                                                     </iframe>
                                                     
 
