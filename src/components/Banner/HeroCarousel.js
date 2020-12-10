@@ -46,14 +46,14 @@ const HeroCarousel = (props) => {
         //         </div>
         //     </div>
         // </div>
-        <div class="banner header-text">
+        <div className="banner header-text">
         <Carousel>
             <Carousel.Item>
                 <img className="d-block w-100 Banner-img" src={props.src[0]} alt="first image" />
                 
                     <div className="overlay">
                         <div className="content-wrapper">
-                            <div class="text-content">
+                            <div className="text-content">
                                 <h4>{props.title[0]}</h4>
                                 <h2>{props.subtitle[0]}</h2>
                             </div>
@@ -66,7 +66,7 @@ const HeroCarousel = (props) => {
                
                     <div className="overlay">
                         <div className="content-wrapper">
-                            <div class="text-content">
+                            <div className="text-content">
                                 <h4>{props.title[1]}</h4>
                                 <h2>{props.subtitle[1]}</h2>
                             </div></div> </div>
@@ -77,7 +77,7 @@ const HeroCarousel = (props) => {
                 
                     <div className="overlay">
                         <div className="content-wrapper">
-                            <div class="text-content">
+                            <div className="text-content">
                                 <h4>{props.title[2]}</h4>
                                 <h2>{props.subtitle[2]}</h2>
                             </div>

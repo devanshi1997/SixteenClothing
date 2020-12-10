@@ -45,7 +45,7 @@ const query =`
           }
         ).then(res => res.json())
           .then(({ data }) => {
-            console.log(data);
+            //console.log(data);
             this.setState({
               services: data.servicesCollection.items
             });
