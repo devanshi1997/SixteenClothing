@@ -25,8 +25,9 @@ export default class ProductDetailShubh extends Component {
                 </div>
             );
         }
-        console.log(product);
+        // console.log(product);
         let description;
+        description = product.details.json;
         const rawRichTextField = description;
         let richTextSummary = documentToHtmlString(rawRichTextField);
         let productSummary = parse(richTextSummary);
@@ -71,15 +72,11 @@ export default class ProductDetailShubh extends Component {
                         </div>
                     </div>
                    
-                    
-                   
-                   
-                  
-                    <section className="productDetailDescription">
-                       <article>
+                    <div className="productDetailDescription">
+                    <p>
                        {productSummary}
-                        </article> 
-                    </section>
+                    </p> 
+                    </div>
                   </div>
                   </div>
                 </div>

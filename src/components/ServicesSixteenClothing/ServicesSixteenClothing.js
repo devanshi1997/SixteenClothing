@@ -1,68 +1,22 @@
-
 import React from "react";
-import { withRouter,Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { ServiceContext } from '../../context/ServiceContext';
 
+export default class ServicesSixteenClothing extends React.Component {
 
-const query = `
-{
-  servicesCollection(order:[
-    sys_firstPublishedAt_ASC
-  ]){
-    items{
-      title,
-      serviceIcon,
-      buttonText,
-      summary,
-      description{
-        json
-      },
-      image{
-        title,
-        url
-      }
-    }
-  }
-}
-`;
-
-const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env
-
-class ServicesSixteenClothing extends React.Component {
-
-  state = {
-    sixteenClothingServices: []
+  state={
+    services: []
   }
 
-  componentDidMount() {
-    window.fetch(
-      `https://graphql.contentful.com/content/v1/spaces/${REACT_APP_SPACE_ID}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${REACT_APP_CDA_ACCESS_TOKEN}`
-        },
-        body: JSON.stringify({ query }),
-      }
-    ).then(res => res.json())
-      .then(({ data }) => {
-        console.log(data);
-        this.setState({
-          sixteenClothingServices: data.servicesCollection.items
-        });
-        console.log(this.state.sixteenClothingServices);
-      })
-      .catch(error => console.log(error));
-  }
-
+  static contextType = ServiceContext;
   render() {
-    console.log(this.props);
+    const { services } = this.context; 
     return (
       <div className="services">
         <div className="container">
           <div className="row">
             {
-              this.state.sixteenClothingServices.map((service, index) => {
+              services.map((service, index) => {
                 return(
                 <div key={index} className="col-md-4">
                   <div className="service-item">
@@ -92,5 +46,3 @@ class ServicesSixteenClothing extends React.Component {
     );
   }
 }
-
-export default withRouter(ServicesSixteenClothing);

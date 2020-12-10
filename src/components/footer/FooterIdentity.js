@@ -30,11 +30,11 @@ class FooterIdentity extends React.Component {
             }
         ).then(res => res.json())
             .then(({ data }) => {
-                console.log("footer data----", data);
+                //console.log("footer data----", data);
                 this.setState({
                     footer: data.identityCollection.items
                 });
-                console.log(this.state.footer);
+                //console.log(this.state.footer);
             })
             .catch(error => console.log(error));
     }

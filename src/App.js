@@ -10,13 +10,14 @@ import ServiceDetail from "./components/ServicesSixteenClothing/ServiceDetail";
 import ProductDetail from './components/OurProduct/ProductDetail';
 import ErrorPage from './Pages/Error';
 import { Route, Switch } from 'react-router-dom';
-
+import FooterCopyright from './components/Footer/FooterIdentity';
 
 // class App extends Component {
 //   render() {
 function App() {
   return (
           <>
+         
       <Navigation />
       <Switch>
         <Route path="/" exact>
@@ -31,7 +32,8 @@ function App() {
           <Route exact path="/services/:service_name" component={ServiceDetail} />
           <Route path="/products/:title" component={ProductDetail} />
           <Route><ErrorPage /></Route>
-         </Switch>           
+         </Switch>     
+         <FooterCopyright/>
       </>
 
     );

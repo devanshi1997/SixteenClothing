@@ -70,11 +70,11 @@ class ContactForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const isValid = this.validate();
-        console.log("Valid---", isValid);
+        // console.log("Valid---", isValid);
       if(isValid){
         this.blur();
-        console.log("Inside post");
-        console.log(this.state);
+        // console.log("Inside post");
+        // console.log(this.state);
         window.fetch(
             `https://api.contentful.com/spaces/${REACT_APP_SPACE_ID}/entries`,
             {
