@@ -62,7 +62,7 @@ class HappyPartners extends Component {
         )
             .then(res => res.json())
             .then(response => {
-                console.log(response);
+                // console.log(response);
 
                 const { data } = response;
                 this.setState({
@@ -93,7 +93,7 @@ class HappyPartners extends Component {
                                 <Carousel responsive={responsive}>
                                     {
                                         partners.map((partner, i) => {
-                                            <h1>{console.log(partner.name)}</h1>
+                                           
                                             return (
 
                                                 <div className="client-item">

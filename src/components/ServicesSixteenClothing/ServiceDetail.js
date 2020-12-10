@@ -15,7 +15,7 @@ class ServiceDetail extends Component{
     render(){
         const { getService } = this.context;
         const service = getService(this.state.title);
-        console.log(service);
+        // console.log(service);
         if (!service) {
             return (
                 <div className="banner header-text">
