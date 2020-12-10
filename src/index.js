@@ -9,14 +9,12 @@ import {
  } from "react-router-dom";
 
 ReactDOM.render(
-  <React.StrictMode>
   <ProdProvider>
     <ServiceProvider>
   <Router>
     <App />
     </Router>
     </ServiceProvider>
-  </ProdProvider>
-  </React.StrictMode>,
+  </ProdProvider>,
   document.getElementById('root')
 );
