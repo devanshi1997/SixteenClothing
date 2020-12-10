@@ -49,11 +49,9 @@ class CreativeSixteenProducts extends React.Component {
       }
     ).then(res => res.json())
       .then(({ data }) => {
-        // console.log(data);
         this.setState({
           creativeSixteenProducts: data.sixteenClothingCollection.items
         });
-        // console.log(this.state.creativeSixteenProducts);
       })
       .catch(error => console.log(error));
   }
@@ -85,7 +83,6 @@ class CreativeSixteenProducts extends React.Component {
                         </div>
 
                         <div className="col-md-4">
-                          {/* <a href="#" className="filled-button">{content.buttonText}</a> */}
                           <Link to="/products" className="filled-button">{content.buttonText}</Link>
 
 

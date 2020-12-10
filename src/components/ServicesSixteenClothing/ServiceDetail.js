@@ -1,30 +1,34 @@
 import React, { Component } from 'react';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import parse from 'html-react-parser';
+import { ServiceContext } from '../../context/ServiceContext'
 
 
 class ServiceDetail extends Component{
 
     state={
-        service: [],
+         title: this.props.match.params.service_name
     }
 
-    componentDidMount(){
-        let service = this.props.location.service;
-
-        this.setState({
-            service: service
-        })
-       
-        console.log(service);
-    }
+    static contextType = ServiceContext;
 
     render(){
-
+        const { getService } = this.context;
+        const service = getService(this.state.title);
+        console.log(service);
+        if (!service) {
+            return (
+                <div className="banner header-text">
+                    <div className="container text-center pad-5">
+                        <h1>Sorry, No Such Service Found!!!</h1>
+                    </div>
+                </div>
+            );
+        }
         let description;
 
-        if (this.state.service.description)
-            description = this.state.service.description.json;
+        if (service.description)
+            description = service.description.json;
         else
             return (
                 <p>No Description</p>
@@ -44,14 +48,13 @@ class ServiceDetail extends Component{
                       <div className="col-md-12">
                             
                         <div className="service-detail service-item">
-                          {/* <h2 className="service-detail-title">{this.state.title}</h2> */}
-                          <h2 className="service-detail-title">{this.state.service.title}</h2>
+                          <h2 className="service-detail-title">{service.title}</h2>
                         </div>
                         <br/>
                             {       
                     
-                                this.state.service.image && 
-                                <img className="service-detail-image" src={ this.state.service.image.url} alt={this.state.service.image.title} />   
+                                service.image && 
+                                <img className="service-detail-image" src={ service.image.url} alt={service.image.title} />   
                             }
                             <br/>
                             <br/>

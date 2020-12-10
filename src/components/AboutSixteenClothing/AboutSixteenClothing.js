@@ -54,11 +54,9 @@ class AboutSixteenClothing extends Component {
       }
     ).then(res => res.json())
       .then(({ data }) => {
-        // console.log(data);
         this.setState({
           aboutSixteenClothing: data.sixteenClothingCollection.items
         });
-        // console.log(this.state.aboutSixteenClothing);
       })
       .catch(error => console.log(error));
   }
@@ -66,7 +64,6 @@ class AboutSixteenClothing extends Component {
   navigate(e){
     e.preventDefault();
     console.log(this.props);
-    // this.props.history.push('/about');
   }
 
   render() {
@@ -96,7 +93,6 @@ class AboutSixteenClothing extends Component {
                           <h4>{content.subTitle}</h4>
                                   {description}
                           <Link to="/about" className="filled-button">{content.buttonText}</Link>
-                          {/* <Button onClick={this.navigate} buttonText={content.buttonText} /> */}
                         </div>
                       </div>
 
