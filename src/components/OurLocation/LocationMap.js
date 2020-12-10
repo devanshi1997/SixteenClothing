@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+
 
 const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env;
 const query = `{
@@ -22,7 +22,7 @@ class LocationMap extends Component {
         super();
 
         this.state = {
-            location: [],
+            locations: [],
             loading: true,
             error: null
         };
@@ -49,7 +49,7 @@ class LocationMap extends Component {
                 const { data } = response;
                 this.setState({
                     loading: false,
-                    location: data ? data.contentTypeLocationCollection.items : []
+                    locations: data ? data.contentTypeLocationCollection.items : []
                 });
             })
             .catch(error => {
@@ -64,7 +64,7 @@ class LocationMap extends Component {
 
 
 
-        const { location } = this.state;
+        const { locations } = this.state;
 
         return (
             <>
@@ -74,10 +74,10 @@ class LocationMap extends Component {
                             <div className="row">
 
                                 {
-                                    location.map(locations => {
+                                    locations.map(location => {
 
-                                        const lat = locations.map.lat;
-                                        const long = locations.map.lon;
+                                        const lat = location.map.lat;
+                                        const long = location.map.lon;
                                         var querystring = 'q='+lat+','+long+'&z=17&output=embed';
                                         let _url = `https://maps.google.com/maps?`+querystring;
                                         return (
@@ -86,13 +86,13 @@ class LocationMap extends Component {
                                                
                                                 <div className="col-md-12">
                                                     <div className="section-heading">
-                                                        <h2>{locations.heading}</h2>
+                                                        <h2>{location.heading}</h2>
                                                     </div>
 
 
                                                 </div>
                                                 <div className="col-md-8">
-                                                    <iframe frameBorder="0" width="730" height="337" src={_url} style={{ border: 0 }} allowfullscreen="" aria-hidden="false" tabindex="0">
+                                                    <iframe title="Map" frameBorder="0" width="730" height="337" src={_url} style={{ border: 0 }}   aria-hidden="false" tabindex="0">
                                                     </iframe>
                                                     
 
@@ -101,8 +101,8 @@ class LocationMap extends Component {
 
                                                 <div className="col-md-4">
                                                     <div className="left-content">
-                                                        <h4>{locations.title}</h4>
-                                                        <p>{locations.description}</p>
+                                                        <h4>{location.title}</h4>
+                                                        <p>{location.description}</p>
 
                                                         <ul className="social-icons">
                                                             <li><a href="#"><i className="fa fa-facebook"></i></a></li>

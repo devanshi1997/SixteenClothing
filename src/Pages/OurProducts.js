@@ -1,7 +1,7 @@
 import React from 'react';
 import Banner from '../components/Banner/Banner'
-import FilteredProducts from '../components/OurProducts/FilteredProducts'
-import FooterIdentity from '../components/footer/FooterIdentity';
+import FilteredProducts from '../components/OurProduct/FilteredProducts'
+
 
 const OurProducts = () =>{
     return (

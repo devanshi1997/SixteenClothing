@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import ScriptTag from 'react-script-tag'
+import React, { Component } from 'react';
+// import ScriptTag from 'react-script-tag'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
@@ -62,8 +62,7 @@ class HappyCustomers extends Component {
         )
             .then(res => res.json())
             .then(response => {
-                console.log(response);
-
+               
                 const { data } = response;
                 this.setState({
                     loading: false,
@@ -93,7 +92,7 @@ class HappyCustomers extends Component {
                                 <Carousel responsive={responsive}>
                                     {
                                         partners.map((partner, i) => {
-                                            <h1>{console.log(partner.name)}</h1>
+                                            
                                             return (
 
                                                 <div className="client-item">

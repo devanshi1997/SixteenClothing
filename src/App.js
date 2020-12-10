@@ -10,7 +10,7 @@ import ServiceDetail from "./components/ServicesSixteenClothing/ServiceDetail";
 import ProductDetail from './components/OurProduct/ProductDetail';
 import ErrorPage from './Pages/Error';
 import { Route, Switch } from 'react-router-dom';
-import FooterCopyright from './components/Footer/FooterIdentity';
+import FooterIdentity from './components/footer/FooterIdentity';
 
 // class App extends Component {
 //   render() {
@@ -33,7 +33,7 @@ function App() {
           <Route path="/products/:title" component={ProductDetail} />
           <Route><ErrorPage /></Route>
          </Switch>     
-         <FooterCopyright/>
+         <FooterIdentity/>
       </>
 
     );

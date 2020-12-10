@@ -58,8 +58,8 @@ const query = `{
             .then(({ data }) => {
                 
                 // const { data } = response;
-                console.log("My data is");
-                console.log(data);
+                //console.log("My data is");
+                //console.log(data);
                 let products = data.productCollection.items;
                 this.setState({
                     products,
@@ -67,7 +67,7 @@ const query = `{
                     // products: data ? data.productCollection.items : []
 
                 });
-                console.log(this.state.products)
+                //console.log(this.state.products)
             })
             .catch(error => {
                 this.setState({
