@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import { AccordionCollapse } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import ScriptTag from 'react-script-tag'
 
 const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env;
+
 const query = `{
     accordionCollection(order:sys_firstPublishedAt_ASC){
       items{
@@ -19,7 +18,7 @@ class Accordion extends Component {
         super();
 
         this.state = {
-            accord: [],
+            accords: [],
             loading: true,
             error: null
         };
@@ -41,12 +40,12 @@ class Accordion extends Component {
         )
             .then(res => res.json())
             .then(response => {
-                //console.log(response);
+                
 
                 const { data } = response;
                 this.setState({
                     loading: false,
-                    accord: data ? data.accordionCollection.items : []
+                    accords: data ? data.accordionCollection.items : []
                 });
             })
             .catch(error => {
@@ -59,30 +58,29 @@ class Accordion extends Component {
 
     render() {
 
-        const { accord } = this.state;
+        const { accords } = this.state;
 
         return (
             <>
                 { <div>
 
-                    {/* <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/jquery.min.js'} /> */}
+                    
                     <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/custom.js'} />
-                    {/* <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/slick.js'} /> */}
-                    {/* <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/isotope.js'} /> */}
+                    
                     <ScriptTag isHydrating={true} type="text/javascript" src={process.env.PUBLIC_URL + 'assets/js/accordions.js'} />
 
                     <ul className="accordion">
                         {
-                            accord.map((accords, i) => {
+                            accords.map((content,index) => {
                                 return (
                                     <>
-                                        <li key={i}>
+                                        <li key={index}>
                                             <a>
-                                                {accords.title}
+                                                {content.title}
                                             </a>
                                             <div className="content">
                                                 <p>
-                                                    {accords.summary}
+                                                    {content.summary}
                                                 </p>
                                             </div>
                                         </li>
