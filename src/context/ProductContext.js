@@ -17,6 +17,7 @@ const query = `{
         price
         rating
         reviews
+        category
         details{
           json
         }
